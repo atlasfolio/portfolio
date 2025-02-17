@@ -95,7 +95,7 @@ nav a.active {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding-right: 20px;
+    padding-right: 5vw;
     z-index: 1002; /* Ensures it's always on top */
     position: relative;
 }
@@ -105,7 +105,7 @@ nav a.active {
 .hamburger div {
     width: 20px;
     height: 3px;
-    background-color: #333;
+    background-color: #e78353;
     margin: 5px 0;
 }
 
@@ -116,23 +116,23 @@ nav a.active {
     position: fixed; /* Ensures it stays in place even when scrolling */
     top: 60px; /* Below the fixed header */
     right: 20px; /* Align to the top-right */
-    width: 180px; /* Adjust width for a compact dropdown */
+    width: 25vw; /* Adjust width for a compact dropdown */
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
     z-index: 1100; /* Keep it above everything */
     border-radius: 8px;
     text-align: left; /* Align text to the left */
-    border: 2px solid #e78353; /* Optional: Adds a subtle border */
 }
 
 .mobile-nav a {
     padding: 12px 15px;
     display: block;
     text-decoration: none;
-    color: #333;
+    color: #e78353;
     font-weight: 500;
-    text-align: left; /* Aligns text properly */
+    text-align: left; 
+    font-size: 1rem;
 }
 
 
@@ -456,8 +456,8 @@ li strong, li b {
                     <button class="prev" onclick="prevSlide(1)">&#10094;</button>
                     <div class="slider">
                         <img src="assets/floods/flood-3.png" class="slide active">
-                        <img src="assets/floods/flood-5.gif" class="slide">
                         <img src="assets/floods/flood-1.png" class="slide">
+                        <img src="assets/floods/flood-5.gif" class="slide">
                         <img src="assets/floods/flood-2.png" class="slide">
                         <img src="assets/floods/flood-4.png" class="slide">
                         <img src="assets/floods/flood-6.gif" class="slide">
