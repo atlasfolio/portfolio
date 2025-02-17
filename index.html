@@ -1,1 +1,572 @@
-This site is under construction.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <title>Portfolio: Alyssa Campbell</title>
+    <style>
+body {
+    font-family: 'Karla', serif;
+    background-color: #ffffff;
+    color: #3c4043;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: .9em;
+}
+header {
+    background: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #e78353;
+    	/* #ed8f60; */
+/* #E76F51; Terracotta red-pink */
+    font-weight: bold;
+    font-family: "Karla", serif; 
+    font-weight: 700; 
+    font-size: 1.9em; 
+}
+
+h3 {
+    color: #77908f;
+    font-weight: light;
+    font-family: "Karla", sans-serif;
+    font-weight: 375;
+    /* font-style: italic; */
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+}
+
+
+.logo {
+font-size: 2.5rem;
+padding-left: 15px;
+font-family: "Zain", serif;
+  font-weight: 300;
+  font-style: italic;
+  color: #6d8f84;
+
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+nav a {
+    font-size: 1.1rem; 
+    color: #e78353;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+    padding: 5px 10px; /* Add some padding for better hover effect */
+    border-radius: 5px; /* Slight rounded corners for the highlight effect */
+}
+
+nav a:hover {
+    color: #ffffff; /* Change text color */
+    background-color: rgba(231, 131, 83, 0.7); /* 70% opacity */
+}
+
+nav a.active {
+    color: #ffff;
+    background-color: rgba(231, 131, 83, 0.7); /* 70% opacity */
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding-right: 20px;
+}
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+}
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 50%;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+.mobile-nav a {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+.show {
+    display: flex;
+}
+
+section {
+    padding: 80px 20px 20px;
+    max-width: 55vw;
+    margin: auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+.project {
+    background: white;
+    margin-top: 5px;
+    padding-top: 0;
+    padding: 10px;
+    padding-bottom: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1em;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+.prev, .next {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: .75em;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 100%;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+#about {
+    padding-bottom: 60px; /* Increase space below the About section */
+    margin-bottom: 60px; /* Adds extra space before Toolkit */
+}
+
+#toolkit-education {
+    padding: 40px 20px;
+    line-height: 1.5;
+    padding-top: 100px; /* Space for fixed header */
+    margin-top: -100px; /* Pulls section back up */
+}
+
+
+.container {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Ensures stackability on small screens */
+}
+
+.column {
+    flex: 1;
+    min-width: 300px; /* Ensures columns stack when below 300px */
+    text-align: left;
+}
+
+/* Ensure bullet points are aligned properly */
+ul {
+    padding-left: 20px;
+}
+
+li strong, li b {
+    color: #6d8f84; /* Change to your desired color */
+}
+
+.quick-links {
+    list-style: disc; /* Keep default bullet points */
+    padding-left: 20px; /* Indent to align bullets properly */
+    margin-top: 10px;
+}
+
+.quick-links li {
+    margin-bottom: 5px;
+}
+
+.quick-links a {
+    text-decoration: none;
+    color: #e78353; /* Default text color */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.quick-links a:hover {
+    background-color: #E76F51; /* Terracotta highlight */
+    color: white; /* Text turns white */
+    padding: 2px 5px; /* Adds a subtle background padding */
+    border-radius: 3px; /* Slight rounded effect */
+}
+
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 30% 65%; 
+    gap: 1.5em;
+    align-items: center;
+}
+
+.about-photos {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 10px; /* Adjust spacing between images */
+    justify-content: center;
+    align-items: center;
+    max-width: 300px; /* Optional: Set a max width */
+    margin: auto; /* Center grid */
+}
+
+
+.about-photos img {
+    width: 100%;
+    border-radius: 10px;
+    /* display: block;
+    margin: auto; */
+    height: auto;
+    border: 2px solid #6d8f84; 
+}
+
+
+
+
+.about-text {
+    text-align: left;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack images and text in one column */
+        gap: 10px; /* Adjust spacing */
+    }
+
+    .about-photos {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 columns on small screens */
+        grid-template-rows: repeat(2, auto);
+        gap: 5px; /* Keep images close */
+        max-width: 220px; /* Adjust as needed */
+        margin: auto; /* Center on mobile */
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .mobile-nav {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Alyssa Campbell</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#toolkit-education">Toolkit</a>
+            <a href="#portfolio">Portfolio</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#toolkit-education" onclick="toggleMenu()">Toolkit</a>
+        <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+    </div>
+    <br><br>
+    <section id="about">
+        <h2>About</h2>
+        <div class="about-grid">
+            <div class="about-photos">
+                <img src="assets/misc/photo1.jpeg" alt="Profile Photo 1">
+                <img src="assets/misc/photo2.png" alt="Profile Photo 1">
+                <!-- <img src="assets/misc/photo3.png" alt="Profile Photo 1">
+                <img src="assets/misc/photo4.png" alt="Profile Photo 1"> -->
+            </div>
+            
+            <!-- Column 2: Intro Text & Thematic/Technical Skills -->
+            <div class="about-text">
+                <p>
+                    <h3>Hello, welcome to Atlas Folio!</h3> I am a data professional with expertise in data visualization, data science, data engineering, and ethical AI development, with several years experience building scalable data ecosystems and impactful data solutions with Python, SQL, and cloud platforms.
+                    <br><br>
+                    My work has touched on the themes of anticipatory climate action, humanitarian and disaster response, as well as urban and transportation planning. My area of technical expertise includes building interactive data visualizations and dashboards, geospatial work, working with APIs and data pipelines, as well as in impact and measurement strategy.
+                    <br><br>
+                    With an ever-growing curiosity for the world that surrounds me, I geek out on all things data visualization, geospatial, and urbanism. In my spare time, you will find me exploring new parts of the city, planning my next travel adventure, dabbling with a new language, or by the water sailing, swimming, and paddle-boarding.
+                    
+                </p>
+
+                <h3>Quick links:</h3>
+<ul class="quick-links">
+    <li><a href="https://www.linkedin.com/in/almacam/" target="_blank">LinkedIn</a></li>
+    <li><a href="https://github.com/atlasfolio" target="_blank">GitHub</a></li>
+    <li><a href="mailto:alyssa.campbell@sciencespo.fr">Email</a></li>
+    <li><a href="assets/cv.pdf" target="_blank">Download CV</a></li>
+</ul>
+            
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="toolkit-education">
+        <h2>Toolkit</h2>
+        <div class="container">
+            <div class="column">
+                <ul>
+                    <li><b>Programming:</b><i> Python, SQL, JavaScript, R</i></li>
+                    <li><b>Data visualization:</b><i> Plotly, d3.js, Looker, Tableau, PowerBi, Mapbox GL JS, Leaflet, CARTO, QGIS</i></li>
+                    <li><b>Cloud platforms:</b><i> Google BigQuery, Google Cloud & Earth Engine, Databricks, Azure Data Studio, Azure SQL Server, MySQL Database, Jira</i></li>
+                    <li><b>Analytical tools:</b><i> Google Analytics, Google Tag Manager, Jupyter Notebook, VS Code</i></li>
+                    <li><b>AI models:</b> <i>Claude, Gemini & Vertex AI, OpenAI GPT-4, Langchain, LLAMA 3, Ollama, PyTorch</i></li>
+                </ul> 
+            </div>
+    
+            <div class="column">
+                <ul>
+                    <li><b>Languages:</b><br>
+                        - English: native speaker<br>
+                        - Spanish: advanced<br>
+                        - French: advanced</li><br>
+                    <li><b>Education:</b><br>
+                        - MS Data Analytics and Visualization <br>
+                        - MSc Urban Planning<br>
+                        - BA in Social Sciences<br>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="project">
+                <h3>Analytics Dashboards</h3>
+                <div class="slider-container">
+                    <button class="prev" onclick="prevSlide(0)">&#10094;</button>
+                    <div class="slider">
+                        <img src="assets/dashboards/dashboard-1.png" class="slide active">
+                        <img src="assets/dashboards/dashboard-2.png" class="slide">
+                        <!-- <img src="assets/dashboards/dashboard-3.png" class="slide"> -->
+                    </div>
+                    <button class="next" onclick="nextSlide(0)">&#10095;</button>
+                </div>
+                <p>Over the years, I have developed several business intelligence and social media monitoring dashboards using various tools, such as PowerBi, Tableau, and Looker.</p>
+            </div>
+
+            <div class="project">
+                <h3>Geospatial Flood Predictions</h3>
+                <div class="slider-container">
+                    <button class="prev" onclick="prevSlide(1)">&#10094;</button>
+                    <div class="slider">
+                        <img src="assets/floods/flood-3.png" class="slide active">
+                        <img src="assets/floods/flood-5.gif" class="slide">
+                        <img src="assets/floods/flood-1.png" class="slide">
+                        <img src="assets/floods/flood-2.png" class="slide">
+                        <img src="assets/floods/flood-4.png" class="slide">
+                        <img src="assets/floods/flood-6.gif" class="slide">
+                    </div>
+                    <button class="next" onclick="nextSlide(1)">&#10095;</button>
+                </div>
+                <p>These maps visualize the 3-D flood risk in Pakistan based on precipitation data using CARTO, created for the 2024 SatSummit NASA Lifelines Conference.<p>
+            </div>
+
+
+            <div class="project">
+                <h3>Visualizing a life, uprooted</h3>
+                <div class="slider-container">
+                    <button class="prev" onclick="prevSlide(2)">&#10094;</button>
+                    <div class="slider">
+                        <img src="assets/capstone/image1.gif" class="slide active">
+                        <img src="assets/capstone/image2.gif" class="slide">
+                        <img src="assets/capstone/image5.gif" class="slide">
+                        <img src="assets/capstone/image3.png" class="slide">
+                        <img src="assets/capstone/image4.png" class="slide">
+                        <img src="assets/capstone/image6.gif" class="slide">
+                        <img src="assets/capstone/image7.png" class="slide">
+                        <img src="assets/capstone/image8.png" class="slide">
+                        <img src="assets/capstone/image9.gif" class="slide">
+                    </div>
+                    <button class="next" onclick="nextSlide(2)">&#10095;</button>
+                </div>
+                <p>This project is an interactive data visualization narrative of the oral history of my great-grandfather, born to an Armenian family in Cilicia, Ottoman Empire. It explores his learnings, loves, and losses through a genocide, civil war, finding love, building and re-building home across three countries. In the first part, Python's NLTK library is used analyze the main themes and sentiments of Hovsep's life, visualized with d3.js and Plotly. The second part is an abridged visual narrative, using a mix of interactive maps, historic footage, family photos and recent travel photos in Lebanon and Eastern Turkey. This project uses Plotly, d3.js, Mapbox GL JS, among other tools.</p>
+            </div>
+            
+        
+
+            <div class="project">
+                <h3>Exploring global trade links on the Swahili coast</h3>
+                <div class="slider-container">
+                    <button class="prev" onclick="prevSlide(3)">&#10094;</button>
+                    <div class="slider">
+                        <img src="assets/swahilicoast/coast-1.png" class="slide active">
+                        <img src="assets/swahilicoast/coast-2.png" class="slide">
+                    </div>
+                    <button class="next" onclick="nextSlide(3)">&#10095;</button>
+                </div>
+                <p>This data visualization exploration, created with Tableau storyboard, explores global maritime trade links, both historic and present, of the Swahili coast with a focus on the UAE and China. Visualizations include a historical shipwreck map, an interactive mapping of Kenya's top shipping partners through maritime shipping connectivity index data, and a sentiment analysis conducted in R of local media articles written about the new Port of Lamu. </p>
+            </div>
+            
+            <div class="project">
+                <h3>Visualizing the LGBTQ Network Survey</h3>
+                <div class="slider-container">
+                    <button class="prev" onclick="prevSlide(4)">&#10094;</button>
+                    <div class="slider">
+                        <img src="assets/lgbtcenter/lgbt-1.png" class="slide active">
+                        <img src="assets/lgbtcenter/lgbt-2.png" class="slide active">
+
+                    </div>
+                    <button class="next" onclick="nextSlide(4)">&#10095;</button>
+                </div>
+                <p>The New York State LGBTQ+ Health and Human Services Network Needs Assessment is among the most comprehensive LGBTQ health surveys in the U.S. This interactive digital overview of the report highlights key findings, including intersectional disparities in care/access and the critical need for mental health support. It aims to highlight the needs and service barriers faced by this underserved community. This project uses d3.js.</p>
+            </div>
+      
+    
+        </div>
+    </section>
+
+    
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    function highlightNav() {
+        let scrollPosition = window.scrollY + 100; // Offset for fixed header
+
+        sections.forEach(section => {
+            let sectionTop = section.offsetTop;
+            let sectionHeight = section.offsetHeight;
+            let sectionId = section.getAttribute("id");
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove("active"); // Remove active from all
+                    if (link.getAttribute("href") === `#${sectionId}`) {
+                        link.classList.add("active"); // Add active to correct link
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener("scroll", highlightNav); // Run function on scroll
+});
+
+let slideIndexes = {}; // Object to track the current slide index for each project
+
+function initSlides() {
+    let sliders = document.querySelectorAll(".project"); // Select all project sliders
+    sliders.forEach((slider, index) => {
+        slideIndexes[index] = 0; // Initialize slide index for each project
+        showSlide(index, 0); // Show first slide
+    });
+}
+
+function showSlide(sliderIndex, slideIndex) {
+    let sliders = document.querySelectorAll(".project");
+    let slides = sliders[sliderIndex].querySelectorAll(".slide");
+
+    slides.forEach(slide => slide.classList.remove("active")); 
+    slides[slideIndex].classList.add("active"); 
+}
+
+function nextSlide(sliderIndex) {
+    let sliders = document.querySelectorAll(".project");
+    let slides = sliders[sliderIndex].querySelectorAll(".slide");
+
+    slideIndexes[sliderIndex] = (slideIndexes[sliderIndex] + 1) % slides.length; 
+    showSlide(sliderIndex, slideIndexes[sliderIndex]);
+}
+
+function prevSlide(sliderIndex) {
+    let sliders = document.querySelectorAll(".project");
+    let slides = sliders[sliderIndex].querySelectorAll(".slide");
+
+    slideIndexes[sliderIndex] = (slideIndexes[sliderIndex] - 1 + slides.length) % slides.length; 
+    showSlide(sliderIndex, slideIndexes[sliderIndex]);
+}
+
+document.addEventListener("DOMContentLoaded", initSlides);
+
+
+    </script>
+</body>
+</html>
