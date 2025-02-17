@@ -96,24 +96,35 @@ nav a.active {
     flex-direction: column;
     cursor: pointer;
     padding-right: 20px;
+    z-index: 1002; /* Ensures it's always on top */
+    position: relative;
 }
+
+
+
 .hamburger div {
     width: 30px;
     height: 3px;
-    background-color: #333;
+    background-color: #6d8f84;
     margin: 5px 0;
 }
+
+
 .mobile-nav {
     display: none;
     flex-direction: column;
     position: absolute;
     top: 60px;
     right: 0;
-    width: 50%;
+    width: 200px; /* Adjust size */
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
+    z-index: 1001; /* Ensure it's above everything */
+    border-radius: 5px;
+    text-align: center;
 }
+
 .mobile-nav a {
     padding: 10px;
     display: block;
@@ -121,8 +132,15 @@ nav a.active {
     color: #333;
     font-weight: 500;
 }
+
+.mobile-nav a:hover {
+    background-color: rgba(231, 131, 83, 0.7);
+    color: white;
+}
+
+
 .show {
-    display: flex;
+    display: flex !important; /* Ensure it's visible when toggled */
 }
 
 section {
@@ -505,11 +523,24 @@ li strong, li b {
     
     <script>
 
-        function toggleMenu() {
-    const mobileNav = document.getElementById("mobileNav");
-    mobileNav.classList.toggle("show");
-}
-        
+function toggleMenu() {
+            const mobileNav = document.getElementById("mobileNav");
+            mobileNav.classList.toggle("show");
+
+            // Ensure it overlays properly
+            if (mobileNav.classList.contains("show")) {
+                mobileNav.style.zIndex = "1001"; 
+            }
+        }
+
+        // Close menu when a link is clicked
+        document.querySelectorAll(".mobile-nav a").forEach(link => {
+            link.addEventListener("click", () => {
+                document.getElementById("mobileNav").classList.remove("show");
+            });
+        });
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
