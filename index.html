@@ -113,14 +113,14 @@ nav a.active {
 .mobile-nav {
     display: none;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     top: 60px;
-    right: 0;
+    right: 20px;
     width: 200px; /* Adjust size */
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
-    z-index: 1001; /* Ensure it's above everything */
+    z-index: 1100; /* Ensure it's above everything */
     border-radius: 5px;
     text-align: center;
 }
@@ -138,9 +138,8 @@ nav a.active {
     color: white;
 }
 
-
 .show {
-    display: flex !important; /* Ensure it's visible when toggled */
+    display: flex !important; 
 }
 
 section {
