@@ -504,6 +504,12 @@ li strong, li b {
     
     
     <script>
+
+        function toggleMenu() {
+    const mobileNav = document.getElementById("mobileNav");
+    mobileNav.classList.toggle("show");
+}
+        
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
