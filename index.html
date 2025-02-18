@@ -115,18 +115,20 @@ nav a.active {
     flex-direction: column;
     position: fixed; /* Ensures it stays in place even when scrolling */
     top: 60px; /* Below the fixed header */
-    right: 20px; /* Align to the top-right */
+    right: 10px; /* Align to the top-right */
     width: 25vw; /* Adjust width for a compact dropdown */
+    max-width: 160px;
+    min-width: 130px; 
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
+    padding: 5px 0;
     z-index: 1100; /* Keep it above everything */
-    border-radius: 8px;
+    border-radius: 5px;
     text-align: left; /* Align text to the left */
 }
 
 .mobile-nav a {
-    padding: 12px 15px;
+    padding: 8px 10px;
     display: block;
     text-decoration: none;
     color: #e78353;
@@ -149,6 +151,13 @@ section {
     padding: 80px 20px 20px;
     max-width: 55vw;
     margin: auto;
+}
+
+@media (max-width: 768px) {
+    section {
+        max-width: 80vw;
+        padding: 15px;
+    }
 }
 
 .portfolio-grid {
